@@ -31,11 +31,16 @@ public class HelpMenu  implements ActionListener{
     {    
         b1 = new JButton("Back");
         l1 = new JLabel("<html> <p align=\"center\">Basic Rules </p> <html>");
-        l2 = new JLabel("<html> <p align=\"justify\"> Each player chooses four pawns of one color and one player is selected to play first.\n" +
-"Each player in turn draws one card from the stack and follows its instructions. To begin the game, all of a player's four pawns are restricted to Start; only a 1 or 2 card can release them to the rest of the board. \n" +
-"A player can jump over any other pawn, landing on the square indicated by the card. However, two pawns cannot occupy the same square. A pawn that lands on a square occupied by another \"bumps\" that pawn back to its own Start. Players can not bump their own pawns back to Start. If the only way to complete a move would result in a player bumping himself, the pawns remain in place and the player loses his or her turn.\n" +
-"If a pawn lands at the start of a slide (except those of its own colour) by direct movement or as the result of a switch, it immediately moves to the last square of the slide. All pawns anywhere on the slide are sent back to their respective Starts.\n" +
-"Access to the \"safety zone\" is limited to pawns of the same color. Pawns inside the zone are immune to being replaced. However, a pawn is vulnerable to being forcibly moved backward out of the safety zone. Also, you cannot move your pawn backwards and forwards and count it as a space, no matter what card you have. Font: Wikipedia </p><html>");
+        l2 = new JLabel("<html> <p align=\"justify\"> <ul> <li>Each player chooses four pawns of one color and one player is selected to play first.</li> \n" +
+"<li> Each player in turn draws one card from the stack and follows its instructions. </li>"
+                + "<li> To begin the game, all of a player's four pawns are restricted to Start; only a 1 or 2 card can release them to the rest of the board. </li> \n" +
+"<li> A player can jump over any other pawn. However, two pawns cannot occupy the same square. </li>"
+                + "<li> A pawn that lands on a square occupied by another \"bumps\" that pawn back to its own Start. </li>"
+                + "<li> Players can not bump their own pawns back to Start. </li>"
+                + "<li> If the only way to complete a move would result in a player bumping himself, the pawns remain in place and the player loses his or her turn. </li>\n" +
+"<li> If a pawn lands at the start of a slide (except those of its own colour), it immediately moves to the last square of the slide. All pawns anywhere on the slide are sent back to their respective Starts. </li>\n" +
+"<li> Access to the \"safety zone\" is limited to pawns of the same color. Pawns inside the zone are immune to being replaced. However, a pawn is vulnerable to being forcibly moved backward out of the safety zone. Also, you cannot move your pawn backwards and forwards and count it as a space, no matter what card you have. </li>"
+                + "<li> Font: Wikipedia </li> </ul> </p><html>");
         this.frame = frame;
         this.menu = menu;
     }
@@ -44,14 +49,18 @@ public class HelpMenu  implements ActionListener{
     
     public void setMenuProperties(int fontSize, int X, int Y)
     {
-        l1.setFont(new Font("Arial", Font.BOLD, fontSize - 10));
-        l2.setFont(new Font("Arial", Font.PLAIN, fontSize - 23));
-        l1.setAlignmentX(Component.TOP_ALIGNMENT);
-        l2.setAlignmentX(Component.CENTER_ALIGNMENT);
-        b1.setFont(new Font("Arial", Font.PLAIN, fontSize));
-        b1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        l1.setFont(new Font("SGK100", Font.BOLD, fontSize - 5));
+        l2.setFont(new Font("SGK100", Font.PLAIN, fontSize - 30));
+        b1.setFont(new Font("SGK100", Font.PLAIN, fontSize));
         b1.setMaximumSize(new Dimension(X,  Y));         
-        l2.setMaximumSize(new Dimension(X + 480,  Y + 250)); 
+        l2.setMaximumSize(new Dimension(X + 480,  Y + 250));
+        
+        b1.setLocation(450, 610);  
+        l1.setLocation(450, 80);  
+        l2.setLocation(180, 100);
+        b1.setSize(180,60);
+        l1.setSize(200, 200);  
+        l2.setSize(720, 650);
     }
     
     //add the items to the main menu's frame
@@ -61,12 +70,10 @@ public class HelpMenu  implements ActionListener{
         b1.addActionListener(this);
         b1.setActionCommand(Integer.toString(1));
         b1.setMnemonic(KeyEvent.VK_R);
-        frame.add(Box.createRigidArea(new Dimension(200, 170)));
         frame.getContentPane().add(l1); 
-        frame.add(Box.createRigidArea(new Dimension(54,36)));
         frame.getContentPane().add(l2); 
-        frame.add(Box.createRigidArea(new Dimension(27,18)));
         frame.getContentPane().add(b1);
+        frame.setLayout(null);
         frame.setVisible(true); 
         frame.setEnabled(true);        
     }
@@ -76,7 +83,7 @@ public class HelpMenu  implements ActionListener{
         frame.getContentPane().removeAll();
         MainMenu menu = new MainMenu();
         menu.setFrame(-1, 1080, 720);
-        menu.setMenuProperties(40, 216, 72);
+        menu.setMenuProperties(60, 216, 72);
         menu.addItemsToFrame(54, 36);
     }
     

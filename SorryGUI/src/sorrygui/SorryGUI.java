@@ -22,7 +22,7 @@ public class SorryGUI{
     public static void main(String[] args) {    
         MainMenu menu = new MainMenu();
         menu.setFrame(-1, 1080, 720);
-        menu.setMenuProperties(40, 216, 72);
+        menu.setMenuProperties(60, 216, 72);
         menu.addItemsToFrame(54, 36);
     }
     

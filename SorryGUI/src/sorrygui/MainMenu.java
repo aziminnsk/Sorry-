@@ -73,6 +73,7 @@ public class MainMenu implements ActionListener
             frame.setSize(width, height);
             frame.setContentPane(new JLabel(new ImageIcon(background))); 
             frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+            frame.setResizable(false);
         } 
         catch (IOException exp) 
         {
@@ -87,10 +88,10 @@ public class MainMenu implements ActionListener
          
     public void setMenuProperties(int fontSize, int X, int Y)
     {
-        b1.setFont(new Font("Arial", Font.PLAIN, fontSize));
-        b2.setFont(new Font("Arial", Font.PLAIN, fontSize));
-        b3.setFont(new Font("Arial", Font.PLAIN, fontSize));
-        b4.setFont(new Font("Arial", Font.PLAIN, fontSize));
+        b1.setFont(new Font("SGK100", Font.PLAIN, fontSize));
+        b2.setFont(new Font("SGK100", Font.PLAIN, fontSize));
+        b3.setFont(new Font("SGK100", Font.PLAIN, fontSize));
+        b4.setFont(new Font("SGK100", Font.PLAIN, fontSize));
         b1.setAlignmentX(Component.CENTER_ALIGNMENT);
         b2.setAlignmentX(Component.CENTER_ALIGNMENT);
         b3.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -137,7 +138,7 @@ public class MainMenu implements ActionListener
             frame.getContentPane().removeAll();
             this.setFrame(0, 1080, 720);
             play = new PlayMenu(this.frame);
-            play.setMenuProperties(40, 246, 36);
+            play.setMenuProperties(45, 246, 36);
             play.addItemsToFrame(54, 36);
             frame.setVisible(true); 
             frame.setEnabled(true); 
@@ -147,7 +148,7 @@ public class MainMenu implements ActionListener
             frame.setVisible(false);
             frame.getContentPane().removeAll();
             help = new HelpMenu(this.frame);
-            help.setMenuProperties(40, 216, 72);
+            help.setMenuProperties(50, 216, 72);
             help.addItemsToFrame(54, 36);
             frame.setVisible(true); 
             frame.setEnabled(true); 
