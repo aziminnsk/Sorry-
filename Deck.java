@@ -22,7 +22,7 @@ public class Deck
       
    public Deck()
    {
-      for (int i = 0; i < 50; i++)
+      for (int i = 0; i < 49; i++)
       {
          deck.add(i);
       }
