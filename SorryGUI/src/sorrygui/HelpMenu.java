@@ -65,7 +65,7 @@ public class HelpMenu  implements ActionListener{
     
     //add the items to the main menu's frame
     
-    public void addItemsToFrame(int Xspace, int Yspace)
+    public void addItemsToFrame()
     { 
         b1.addActionListener(this);
         b1.setActionCommand(Integer.toString(1));

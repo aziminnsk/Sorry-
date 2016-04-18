@@ -81,7 +81,7 @@ public class BoardMenu extends JPanel
         c3Rules = new JLabel("<html> <p align=\"justify\"> 3. Move a pawn three spaces forward. </p><html> ");
         c4Rules = new JLabel("<html> <p align=\"justify\"> 4. Move a pawn four spaces backward. </p><html> ");
         c5Rules = new JLabel("<html> <p align=\"justify\"> 5. Move a pawn five spaces forward. </p><html> ");
-        c7Rules = new JLabel("<html> <p align=\"justify\"> 7. (a) MMove one pawn seven spaces forward or "
+        c7Rules = new JLabel("<html> <p align=\"justify\"> 7. (a) Move one pawn seven spaces forward or "
                 + "(b) split the seven spaces between two pawns. </p><html> ");
         c8Rules = new JLabel("<html> <p align=\"justify\"> 8. Move a pawn eight spaces forward. </p><html> ");
         c10Rules = new JLabel("<html> <p align=\"justify\"> 10. (a) Move a pawn 10 spaces forward or (b) one space backward. "
@@ -127,7 +127,7 @@ public class BoardMenu extends JPanel
             //Load some of the pegs's images
             blue1 = ImageIO.read(new File("C:\\Users\\hchangqu\\Documents\\NetBeansProjects\\SorryGUI\\src\\sorrygui\\images\\blue1.png"));
             blue2 = ImageIO.read(new File("C:\\Users\\hchangqu\\Documents\\NetBeansProjects\\SorryGUI\\src\\sorrygui\\images\\blue2.png"));
-            blue4 = ImageIO.read(new File("C:\\Users\\hchangqu\\Documents\\NetBeansProjects\\SorryGUI\\src\\sorrygui\\images\\blue3.png"));
+            blue4 = ImageIO.read(new File("C:\\Users\\hchangqu\\Documents\\NetBeansProjects\\SorryGUI\\src\\sorrygui\\images\\blue4.png"));
             
             green2 = ImageIO.read(new File("C:\\Users\\hchangqu\\Documents\\NetBeansProjects\\SorryGUI\\src\\sorrygui\\images\\green2.png"));
             green3 = ImageIO.read(new File("C:\\Users\\hchangqu\\Documents\\NetBeansProjects\\SorryGUI\\src\\sorrygui\\images\\green3.png"));
@@ -150,8 +150,22 @@ public class BoardMenu extends JPanel
             //set frame attributes and background
             frame.setSize(width, height);
             frame.setContentPane(new JLabel(new ImageIcon(background))); 
-            
-            //initializing labels and buttons
+            frame.setLayout(null);
+        } 
+        catch (IOException exp) 
+        {
+            exp.printStackTrace();
+        }
+        
+        frame.setVisible(true); 
+        frame.setEnabled(true);  
+    }
+    
+    //Set the menu and it's items properties
+         
+    public void setMenuProperties(int fontSize)
+    {        
+           //initializing labels and buttons     
             blueLabel1 = new JLabel(new ImageIcon(blue1));
             blueLabel2 = new JLabel(new ImageIcon(blue2));
             blueLabel4 = new JLabel(new ImageIcon(blue4));
@@ -177,17 +191,17 @@ public class BoardMenu extends JPanel
             c2Label.setLocation(-90,330);
 
             //c1Rules.setFont(new Font("Arial", Font.BOLD, 17));
-            c2Rules.setFont(new Font("SGK100", Font.BOLD, 19));
+            c2Rules.setFont(new Font("SGK100", Font.BOLD, fontSize));
             //c1Rules.setLocation(350,650);
             c2Rules.setLocation(360,640);
             
-            numPlayerHome.setFont(new Font("SGK100", Font.BOLD, 20));
-            numPlayerStart.setFont(new Font("SGK100", Font.BOLD, 20));
-            numCompHome.setFont(new Font("SGK100", Font.BOLD, 20));
-            numCompStart.setFont(new Font("SGK100", Font.BOLD, 20));
+            numPlayerHome.setFont(new Font("SGK100", Font.BOLD, fontSize));
+            numPlayerStart.setFont(new Font("SGK100", Font.BOLD, fontSize));
+            numCompHome.setFont(new Font("SGK100", Font.BOLD, fontSize));
+            numCompStart.setFont(new Font("SGK100", Font.BOLD, fontSize));
             //b1.setFont(new Font("Arial", Font.PLAIN, 12));
-            b2.setFont(new Font("SGK100", Font.PLAIN, 16));
-            b3.setFont(new Font("SGK100", Font.PLAIN, 16));
+            b2.setFont(new Font("SGK100", Font.PLAIN, fontSize - 4));
+            b3.setFont(new Font("SGK100", Font.PLAIN, fontSize - 4));
             
             //blue
             numPlayerHome.setLocation(273,665);
@@ -198,8 +212,8 @@ public class BoardMenu extends JPanel
             numCompStart.setLocation(120,735);
             
             //b1.setLocation(373,316);
-            b2.setLocation(400,910);
-            b3.setLocation(460,910);    
+            b2.setLocation(460,910);
+            b3.setLocation(520,910);    
             
             //turn labels location
             //yellow
@@ -211,52 +225,18 @@ public class BoardMenu extends JPanel
             //green
             turnLabel.setLocation(86,860); 
             
-            //set peg location in the board
-            int x = 32;
+            //set peg location in the board (1)
+            int x = 368;
             int y = -459;
             
             blueLabel1.setLocation(y,x);
-           
-            for (int i = 0; i <12; i++)
-            {
-                if (i == 10)
-                    y = y + 48; //goes to the right
-                
-                if (i == 9)
-                {
-                    y = y + 4*48;
-                    greenLabel2.setLocation(y,x);
-                    y = y - 4*48;
-                }
-                
-                if (i == 6)
-                    blueLabel4.setLocation(y,x);
+            blueLabel2.setLocation(y,x + 48*4);
+            blueLabel4.setLocation (y, x - 48*11);
+            greenLabel2.setLocation (y + 48*15, x - 48*11);
+            greenLabel3.setLocation (y + 48*15, x + 48*4);
                     
-                    //y = y - 49; //goes to the left
-                greenLabel3.setLocation(y,x);
-                x = x + 48; //goes down
-                //x = x- - 48;//goes up
-            }
-            frame.getContentPane().add(greenLabel2); 
-            frame.getContentPane().add(blueLabel1); 
-            frame.getContentPane().add(greenLabel3); 
-            frame.getContentPane().add(blueLabel4); 
-            
-            frame.getContentPane().add(cDButton); 
-            frame.getContentPane().add(c2Label);
-            //frame.getContentPane().add(c1Rules); 
-            frame.getContentPane().add(c2Rules); 
-            frame.getContentPane().add(numPlayerHome); 
-            frame.getContentPane().add(numPlayerStart); 
-            frame.getContentPane().add(numCompHome); 
-            frame.getContentPane().add(numCompStart); 
-            //frame.getContentPane().add(b1); 
-            frame.getContentPane().add(b2); 
-            frame.getContentPane().add(b3); 
-            frame.getContentPane().add(turnLabel); 
-            frame.setResizable(false);
-            
-            blueLabel1.setSize(1000, 400);           
+            blueLabel1.setSize(1000, 400);   
+            blueLabel2.setSize(1000, 400);
             blueLabel4.setSize(1000, 400);
             greenLabel2.setSize(1000, 400);
             greenLabel3.setSize(1000, 400);
@@ -277,29 +257,36 @@ public class BoardMenu extends JPanel
             
             turnLabel.setSize(100,100);
             
-            frame.setLayout(null);
-        } 
-        catch (IOException exp) 
-        {
-            exp.printStackTrace();
-        }
-        
-        frame.setVisible(true); 
-        frame.setEnabled(true);  
-    }
-    
-    //Set the menu and it's items properties
-         
-    public void setMenuProperties(int fontSize, int X, int Y)
-    {        
+            frame.setResizable(false);
+            
+            
     }
     
     //add the items to the main menu's frame
         
-    public void addItemsToFrame(int Xspace, int Yspace)
+    public void addItemsToFrame()
     {
-        frame.setVisible(true); 
-        frame.setEnabled(true);        
+            frame.getContentPane().add(greenLabel2); 
+            frame.getContentPane().add(blueLabel1);
+            frame.getContentPane().add(blueLabel2);
+            frame.getContentPane().add(greenLabel3); 
+            frame.getContentPane().add(blueLabel4); 
+            
+            frame.getContentPane().add(cDButton); 
+            frame.getContentPane().add(c2Label);
+            //frame.getContentPane().add(c1Rules); 
+            frame.getContentPane().add(c2Rules); 
+            frame.getContentPane().add(numPlayerHome); 
+            frame.getContentPane().add(numPlayerStart); 
+            frame.getContentPane().add(numCompHome); 
+            frame.getContentPane().add(numCompStart); 
+            //frame.getContentPane().add(b1); 
+            frame.getContentPane().add(b2); 
+            frame.getContentPane().add(b3); 
+            frame.getContentPane().add(turnLabel); 
+            
+            frame.setVisible(true); 
+            frame.setEnabled(true);        
     }
 
 }

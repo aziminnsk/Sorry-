@@ -139,7 +139,7 @@ public class MainMenu implements ActionListener
             this.setFrame(0, 1080, 720);
             play = new PlayMenu(this.frame);
             play.setMenuProperties(45, 246, 36);
-            play.addItemsToFrame(54, 36);
+            play.addItemsToFrame();
             frame.setVisible(true); 
             frame.setEnabled(true); 
         }
@@ -149,7 +149,7 @@ public class MainMenu implements ActionListener
             frame.getContentPane().removeAll();
             help = new HelpMenu(this.frame);
             help.setMenuProperties(50, 216, 72);
-            help.addItemsToFrame(54, 36);
+            help.addItemsToFrame();
             frame.setVisible(true); 
             frame.setEnabled(true); 
         }

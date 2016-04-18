@@ -93,11 +93,46 @@ public class PlayMenu implements ActionListener{
         b3.setFont(new Font("SGK100", Font.BOLD, fontSize - 28));
         b4.setFont(new Font("SGK100", Font.BOLD, fontSize - 28));
         input.setMaximumSize(new Dimension(X,  Y)); 
+        
+        inputText.setLocation(280, 50);  
+       input.setLocation(520, 180);   
+       modeText.setLocation(400, 200);
+       
+       b1.setLocation(350, 600);  
+       b2.setLocation(580, 600);  
+       b3.setLocation(410, 270);
+       b4.setLocation(560, 270);
+       
+       easy.setLocation(400, 400);  
+       normal.setLocation(500, 400); 
+       hard.setLocation(600, 400); 
+       
+       redButton.setLocation(140, 250);
+       blueButton.setLocation(140, 445);
+       yellowButton.setLocation(900, 250);
+       greenButton.setLocation(900, 445);
+        
+       inputText.setSize(300, 300);           
+       input.setSize(250, 50);
+       modeText.setSize(300, 300);
+       redButton.setSize(25, 30);
+       blueButton.setSize(25, 30);
+       yellowButton.setSize(25, 30);
+       greenButton.setSize(25, 30);
+       
+       b1.setSize(180,60);
+       b2.setSize(150,60);
+       b3.setSize(100,30);
+       b4.setSize(100,30);
+       
+       easy.setSize(70,30);  
+       normal.setSize(70,30);
+       hard.setSize(70,30);
     }
     
     //add the items to the main menu's frame
     
-    public void addItemsToFrame(int Xspace, int Yspace)
+    public void addItemsToFrame()
     { 
         ButtonGroup group = new ButtonGroup();
         b1.addActionListener(this);
@@ -147,42 +182,7 @@ public class PlayMenu implements ActionListener{
         frame.getContentPane().add(easy); 
         frame.getContentPane().add(normal);
         frame.getContentPane().add(hard);
-        
-       inputText.setLocation(280, 50);  
-       input.setLocation(520, 180);   
-       modeText.setLocation(400, 200);
-       
-       b1.setLocation(350, 600);  
-       b2.setLocation(580, 600);  
-       b3.setLocation(410, 270);
-       b4.setLocation(560, 270);
-       
-       easy.setLocation(400, 400);  
-       normal.setLocation(500, 400); 
-       hard.setLocation(600, 400); 
-       
-       redButton.setLocation(140, 250);
-       blueButton.setLocation(140, 445);
-       yellowButton.setLocation(900, 250);
-       greenButton.setLocation(900, 445);
-        
-       inputText.setSize(300, 300);           
-       input.setSize(250, 50);
-       modeText.setSize(300, 300);
-       redButton.setSize(25, 30);
-       blueButton.setSize(25, 30);
-       yellowButton.setSize(25, 30);
-       greenButton.setSize(25, 30);
-       
-       b1.setSize(180,60);
-       b2.setSize(150,60);
-       b3.setSize(100,30);
-       b4.setSize(100,30);
-       
-       easy.setSize(70,30);  
-       normal.setSize(70,30);
-       hard.setSize(70,30);
-      
+
         frame.setLayout(null);
         frame.setVisible(true); 
         frame.setEnabled(true);        
@@ -211,6 +211,8 @@ public class PlayMenu implements ActionListener{
             frame.getContentPane().removeAll();
             BoardMenu menu = new BoardMenu();
             menu.setFrame(808, 1020);
+            menu.setMenuProperties(20);
+            menu.addItemsToFrame();
         }
         else if(Integer.parseInt(e.getActionCommand()) == 6)
         {
