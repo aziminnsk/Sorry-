@@ -65,13 +65,13 @@ public class PlayMenu implements ActionListener{
     
     public void setMenuProperties(int fontSize, int X, int Y)
     {
-        redButton.setActionCommand(Integer.toString(1));
+        redButton.setActionCommand(Integer.toString(0));
         redButton.setMnemonic(KeyEvent.VK_R);
-        blueButton.setActionCommand(Integer.toString(2));
+        blueButton.setActionCommand(Integer.toString(1));
         blueButton.setMnemonic(KeyEvent.VK_B);
         yellowButton.setActionCommand(Integer.toString(3));
         yellowButton.setMnemonic(KeyEvent.VK_Y);
-        greenButton.setActionCommand(Integer.toString(4));
+        greenButton.setActionCommand(Integer.toString(2));
         greenButton.setMnemonic(KeyEvent.VK_G);
         
         easy.setActionCommand(Integer.toString(7));
@@ -211,8 +211,9 @@ public class PlayMenu implements ActionListener{
             frame.getContentPane().removeAll();
             BoardMenu menu = new BoardMenu();
             menu.setFrame(808, 1020);
-            menu.setMenuProperties(20);
-            menu.addItemsToFrame();
+            int randomNum = 1 + (int)(Math.random() * 11); 
+            menu.setMenuProperties(20, randomNum);
+            menu.addItemsToFrame(randomNum);
         }
         else if(Integer.parseInt(e.getActionCommand()) == 6)
         {
